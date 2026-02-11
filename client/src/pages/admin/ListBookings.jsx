@@ -45,7 +45,7 @@ const ListBookings = () => {
             </tr>
           </thead>
           <tbody className="text-sm font-light">
-            {bookings.map((item, index) => (
+            {bookings?.map((item, index) => (
               <tr
                 key={index}
                 className="border-b border-primary/20 bg-primary/5 even:bg-primary/10"
@@ -55,7 +55,7 @@ const ListBookings = () => {
                 <td className="p-2">{dateFormat(item.show.showDateTime)}</td>
                 <td className="p-2">
                   {Object.keys(item.bookedSeats)
-                    .map((seat) => item.bookedSeats[seat])
+                    ?.map((seat) => item.bookedSeats[seat])
                     .join(", ")}
                 </td>
                 <td className="p-2">
@@ -73,3 +73,4 @@ const ListBookings = () => {
 };
 
 export default ListBookings;
+
