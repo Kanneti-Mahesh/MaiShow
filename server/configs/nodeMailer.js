@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
+  host: "smtp.mailersend.net",
   port: 587,
   auth: {
     user: process.env.SMTP_USER,
@@ -21,3 +21,4 @@ const sendEmail = async ({ to, subject, body }) => {
 };
 
 export { sendEmail };
+
