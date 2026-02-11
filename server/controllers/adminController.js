@@ -56,9 +56,15 @@ export const getAllBookings = async (req, res) => {
       })
       .sort({ createdAt: -1 });
 
+    // remove bookings where user/show/movie is missing (error handling)
+      bookings = bookings.filter(
+        (b) => b.user && b.show && b.show.movie
+      );
+
     res.json({ success: true, bookings });
   } catch (error) {
     console.error(error);
     res.json({ success: false, message: error.message });
   }
 };
+
