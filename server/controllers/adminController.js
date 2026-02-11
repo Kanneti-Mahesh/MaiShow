@@ -48,7 +48,7 @@ export const getAllShows = async (req, res) => {
 // API to get all bookings
 export const getAllBookings = async (req, res) => {
   try {
-    const bookings = await Booking.find({})
+    let bookings = await Booking.find({})
       .populate("user")
       .populate({
         path: "show",
@@ -67,4 +67,5 @@ export const getAllBookings = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
 
